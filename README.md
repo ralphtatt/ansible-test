@@ -6,7 +6,7 @@ This repo contains a configuration for helping understand and test Ansible. It i
 
 ### Projects
 
-There is a [projects](./PROJECTS.md) file which contains some ideas of projects that could be used with Anisble.
+There is a [projects](./PROJECTS.md) file which contains some ideas of projects that could be used with Ansible.
 
 ## Development
 
