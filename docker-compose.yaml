@@ -1,0 +1,28 @@
+services:
+  ubuntu1:
+    image: ubuntu:22.04
+    container_name: ubuntu1
+    hostname: ubuntu1
+    tty: true
+    command: >
+      bash -c "apt-get update &&
+              apt-get install -y openssh-server python3 sudo &&
+              service ssh start &&
+              echo 'root:password' | chpasswd &&
+              sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config &&
+              service ssh restart &&
+              tail -f /dev/null"
+
+  ubuntu2:
+    image: ubuntu:22.04
+    container_name: ubuntu2
+    hostname: ubuntu2
+    tty: true
+    command: >
+      bash -c "apt-get update &&
+              apt-get install -y openssh-server python3 sudo &&
+              service ssh start &&
+              echo 'root:password' | chpasswd &&
+              sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config &&
+              service ssh restart &&
+              tail -f /dev/null"

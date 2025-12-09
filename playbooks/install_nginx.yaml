@@ -1,0 +1,17 @@
+---
+- name: Test playbook
+  hosts: servers
+  tasks:
+    - name: Get hostname
+      command: hostname
+      register: hostname_output
+    
+    - name: Print hostname
+      debug:
+        msg: "Hostname is {{ hostname_output.stdout }}"
+    
+    - name: Install nginx
+      apt:
+        name: nginx
+        state: present
+        update_cache: yes
